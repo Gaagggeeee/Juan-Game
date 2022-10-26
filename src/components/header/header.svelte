@@ -6,7 +6,7 @@
     export let customclass: string = '';
     export let orientation: string = '';
 
-
+    
 
 </script>
 

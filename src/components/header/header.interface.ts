@@ -7,6 +7,6 @@ interface Link {
     title: string,
     src: string,
     alt: string, 
-    style: string,
+    style: string, 
 
 }
