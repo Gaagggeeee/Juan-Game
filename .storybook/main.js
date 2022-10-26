@@ -6,7 +6,11 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
+    "@storybook/addon-interactions",
+    'storybook-dark-mode'
   ],
-  "framework": "@storybook/svelte"
+  "framework": "@storybook/svelte",
+  "svelteOptions": {
+    "preprocess": require("svelte-preprocess")()
+  }
 }

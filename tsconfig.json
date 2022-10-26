@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es2017",                                
+    "moduleResolution": "node",                                
+    "esModuleInterop": true,                             
+    "strict": false,      
+    "resolveJsonModule": true,        
+    "importsNotUsedAsValues": "remove",                        
+    "skipLibCheck": true,
+    "types": [
+      "svelte",
+      "svelte/store",
+      "svelte/motion",
+      "svelte/transition",
+      "svelte/animate",
+      "svelte/easing"
+    ]
+  },
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "include": ["src/**/*", "src/node_modules"],
+  "exclude": ["node_modules/*", "__sapper__/*", "public/*"],   
+}
