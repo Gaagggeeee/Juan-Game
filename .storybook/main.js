@@ -7,8 +7,18 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    'storybook-dark-mode'
+    'storybook-dark-mode',
+    {
+      name: "@storybook/addon-docs",
+      options: {
+        configureJSX: true,
+        babelOptions: {},
+        sourceLoaderOptions: {},
+        transcludeMarkdown: true
+      }
+    }
   ],
+  "staticDirs": ['../public'],
   "framework": "@storybook/svelte",
   "svelteOptions": {
     "preprocess": require("svelte-preprocess")()
