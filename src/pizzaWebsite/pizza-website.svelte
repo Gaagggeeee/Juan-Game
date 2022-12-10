@@ -2,51 +2,14 @@
     import Header from "../components/header/header.svelte";
     import Home from "../components/home/home.svelte";
     import { Styles } from "sveltestrap";
-    import { Client, Environment, ApiError } from 'square'
-  import { onMount } from "svelte";
-    // import * as dotenv from 'dotenv' 
-    // dotenv.config()
+    import { onMount } from "svelte";
+    import { DISPATCHER } from '../stores/dispatcher.store'
 
-    const client = new Client({
-        //REPLACE IN PROD
-    accessToken: 'EAAAEAzeABaIXk8gWUNwe7sA0aLaFG7z_daPnMpI2MSufyUKgEEHu5HqaRVbEEvj',
-    environment: Environment.Sandbox,
-    });
-
-    const { locationsApi } = client;
-
-    async function getLocations() {
-    try {
-        let listLocationsResponse = await locationsApi.listLocations();
-
-        let locations = listLocationsResponse.result.locations;
-
-        locations.forEach(function (location) {
-        console.log(
-            location.id + ": " +
-            location.name +", " +
-            location.address.addressLine1 + ", " +
-            location.address.locality
-        );
-        });
-    } catch (error) {
-        if (error instanceof ApiError) {
-        error.result.errors.forEach(function (e) {
-            console.log(e.category);
-            console.log(e.code);
-            console.log(e.detail);
-        });
-        } else {
-        console.log("Unexpected error occurred: ", error);
-        }
-    }
-    };
-
+    let data: any = null
+    
     onMount(() => {
-        getLocations();
+        DISPATCHER('GET_LOCATION')
     })
-
-
 
 </script>
 
